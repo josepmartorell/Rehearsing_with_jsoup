@@ -13,8 +13,10 @@ import java.io.IOException;
 public class JsoupTest {
 
     static short ID_SHOOT = 1;
+    static short SHIFT = 0;
     static final String ZERO = "0";
     static final String SPOT = " ";
+    static final String SKIP = "   ";
 
     public static void main(String[] args) throws IOException {
 
@@ -25,32 +27,60 @@ public class JsoupTest {
 
         //Selects a bunch of a tags
         System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - All countries\n");
-        final Elements newsHeadlines = doc.select("td.description a");
+
+        Elements newsHeadlines = null;
+
+        if (SHIFT == 0){
+            newsHeadlines = doc.select("td.description a");
+        }else{
+            newsHeadlines = doc.select("td");
+        }
+
 
         //Print to console
 
-        for (Element headline : newsHeadlines) {
+        for (Element line : newsHeadlines) {
             id_shoot = Short.toString(ID_SHOOT);
 
             if (id_shoot.length() == 1) {
                 id_shoot = SPOT + ZERO + id_shoot + "";
             }
-            if (id_shoot.length() == 2){
+            if (id_shoot.length() == 2) {
                 id_shoot = SPOT + id_shoot + "  ";
-            }else{
+            } else {
                 id_shoot = id_shoot + "  ";
             }
 
-            String line = headline.text();
-            System.out.println(id_shoot + line);
-            ID_SHOOT ++;
+            if (SHIFT == 0) {
+
+                String headline = line.text();
+                System.out.println(id_shoot + headline);
+                ID_SHOOT++;
+
+            } else if (SHIFT == 1){
+
+                String headline = line.getElementsByClass("description").text();
+                String dateline = line.getElementsByClass("incorporation").text();
+                String juryline = line.getElementsByClass("jurisdiction").text();
+                String landline = line.getElementsByClass("country").text();
+                System.out.println(headline + dateline + juryline + landline);
+                ID_SHOOT++;
+
+            }
+
         }
+
+        if (SHIFT != 0){
+            System.out.println("Total shots: " + ID_SHOOT / 5);
+        }
+
 
         System.out.println("\n\n----------------------------------------------------------------\n\n");
 
         //Print the outer html of the page
         System.out.println(doc.outerHtml());
     }
+
 }
 
 /*
