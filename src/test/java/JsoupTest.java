@@ -33,7 +33,7 @@ public class JsoupTest {
         SHIFT = scan.nextShort();
 
         //Downloads the html from wikipedia and parses it
-        final Document doc = Jsoup.connect("https://offshoreleaks.icij.org/search?q=pharma").get();
+        final Document doc1 = Jsoup.connect("https://offshoreleaks.icij.org/search?q=pharma").get();
         final Document doc2 = Jsoup.connect("https://offshoreleaks.icij.org/nodes/10170053 ").get();
         final Document doc3 = Jsoup.connect("https://medicaldevices.icij.org/search?q%5Bdisplay_cont%5D=bayer").get();
         final Document doc4 = Jsoup.connect("https://medicaldevices.icij.org/devices/col-medrad-bayer-contrast-media-injector-system").get();
@@ -55,7 +55,7 @@ public class JsoupTest {
 
         //Print to console
         if (SHIFT == 0) {
-            newsHeadlines = doc.select("td.description a");
+            newsHeadlines = doc1.select("td.description a");
 
             for (Element line : newsHeadlines) {
                 id_shoot = Short.toString(ID_SHOOT);
@@ -77,7 +77,7 @@ public class JsoupTest {
 
 
         } else if (SHIFT == 1){
-            newsHeadlines = doc.select("td");
+            newsHeadlines = doc1.select("td");
 
             for (Element line : newsHeadlines) {
 
@@ -150,7 +150,7 @@ public class JsoupTest {
 
         //Print the outer html of the page
         if (SHIFT == 0 || SHIFT == 1) {
-            System.out.println(doc.outerHtml());
+            System.out.println(doc1.outerHtml());
         }
         if(SHIFT == 2){
             System.out.println(doc2.outerHtml());
@@ -168,11 +168,3 @@ public class JsoupTest {
 
 
 }
-
-
-
-/* TODO horizontal tabulation:
- * FROM: DAM_J-repository:
- * System.out.println(String.format("%4s %-25s %10s %s %-40s", parts[0], parts[1], parts[2], "", descripcio));
- *
- */
