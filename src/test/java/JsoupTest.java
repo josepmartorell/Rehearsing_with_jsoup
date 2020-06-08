@@ -4,6 +4,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.util.Scanner;
 
 
 /**
@@ -13,14 +14,23 @@ import java.io.IOException;
 public class JsoupTest {
 
     static short ID_SHOOT = 1;
-    static short SHIFT = 1;
+    static short SHIFT = 0;
     static final String ZERO = "0";
     static final String SPOT = " ";
     static final String SKIP = "   ";
 
     public static void main(String[] args) throws IOException {
+        JsoupTest prg = new JsoupTest();
+        prg.init();
+    }
+
+    void init() throws IOException {
 
         String id_shoot = "";
+
+        System.out.println("Type no test: ");
+        Scanner scan = new Scanner(System.in);
+        SHIFT = scan.nextShort();
 
         //Downloads the html from wikipedia and parses it
         final Document doc = Jsoup.connect("https://offshoreleaks.icij.org/search?q=pharma").get();
@@ -78,7 +88,9 @@ public class JsoupTest {
         //Print the outer html of the page
         System.out.println(doc.outerHtml());
 
+
     }
+
 
 }
 
