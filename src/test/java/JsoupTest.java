@@ -37,7 +37,11 @@ public class JsoupTest {
         final Document doc2 = Jsoup.connect("https://offshoreleaks.icij.org/nodes/10170053 ").get();
 
         //Selects a bunch of a tags
-        System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - All countries\n");
+        if(SHIFT == 0 || SHIFT == 1)
+            System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - All countries\n");
+        if(SHIFT == 2)
+        //Selects an specific target
+            System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - PHARMA VITAL, S.A.\n");
 
         Elements newsHeadlines = null;
 
@@ -82,13 +86,20 @@ public class JsoupTest {
         if (SHIFT == 1){
             System.out.println("Total shots: " + ID_SHOOT / 5);
 
-        }else{
+        }if (SHIFT == 2){
             newsHeadlines = doc2.select("tr");
 
+
+
             for (Element line : newsHeadlines) {
-                String headline = line.text();
-                System.out.println(headline);
+                /* garbage text replacement */
+                String headline = line.text().replace("Role From To Data From", "");
+                String skip = headline.replace("Status Data From", "");
+                String skip2 = skip.replace("- Panama Papers", "");
+                String skip3 = skip2.replace("Panama Papers", "");
+                System.out.println(skip3);
             }
+            System.out.println("Intermediary");
 
         }
 
@@ -110,8 +121,8 @@ public class JsoupTest {
 
 
 
-/*
- * FROM: DAM_J-repository/ASXM3B2_EAC6P2_Martorell_A/src/asxm3b2_eac6p2_martorell_a/:
+/* TODO horizontal tabulation:
+ * FROM: DAM_J-repository:
  * System.out.println(String.format("%4s %-25s %10s %s %-40s", parts[0], parts[1], parts[2], "", descripcio));
  *
  */
