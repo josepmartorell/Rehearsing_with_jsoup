@@ -34,6 +34,7 @@ public class JsoupTest {
 
         //Downloads the html from wikipedia and parses it
         final Document doc = Jsoup.connect("https://offshoreleaks.icij.org/search?q=pharma").get();
+        final Document doc2 = Jsoup.connect("https://offshoreleaks.icij.org/nodes/10170053 ").get();
 
         //Selects a bunch of a tags
         System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - All countries\n");
@@ -78,15 +79,28 @@ public class JsoupTest {
 
         }
 
-        if (SHIFT != 0){
+        if (SHIFT == 1){
             System.out.println("Total shots: " + ID_SHOOT / 5);
+
+        }else{
+            newsHeadlines = doc2.select("tr");
+
+            for (Element line : newsHeadlines) {
+                String headline = line.text();
+                System.out.println(headline);
+            }
 
         }
 
         System.out.println("\n\n----------------------------------------------------------------\n\n");
 
         //Print the outer html of the page
-        System.out.println(doc.outerHtml());
+        if (SHIFT == 0 || SHIFT == 1) {
+            System.out.println(doc.outerHtml());
+        }else{
+            System.out.println(doc2.outerHtml());
+
+        }
 
 
     }
