@@ -35,13 +35,21 @@ public class JsoupTest {
         //Downloads the html from wikipedia and parses it
         final Document doc = Jsoup.connect("https://offshoreleaks.icij.org/search?q=pharma").get();
         final Document doc2 = Jsoup.connect("https://offshoreleaks.icij.org/nodes/10170053 ").get();
+        final Document doc3 = Jsoup.connect("https://medicaldevices.icij.org/search?q%5Bdisplay_cont%5D=bayer").get();
+        final Document doc4 = Jsoup.connect("https://medicaldevices.icij.org/devices/col-medrad-bayer-contrast-media-injector-system").get();
 
-        //Selects a bunch of a tags
+        //Selects a bunch of a tags based on topic
         if(SHIFT == 0 || SHIFT == 1)
-            System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - All countries\n");
+            System.out.println("\nIcij Search Engine Panama Papers \nSnapshoot: pharma - All countries\n");
         if(SHIFT == 2)
         //Selects an specific target
-            System.out.println("\nIcij Search Engine Panama Papers \nSnapshot: pharma - PHARMA VITAL, S.A.\n");
+            System.out.println("\nIcij Search Engine Panama Papers \nSnapshoot: pharma - PHARMA VITAL, S.A.\n");
+        if(SHIFT == 3)
+            //Selects a bunch of a devices based on topic
+            System.out.println("\nIcij International Medical Devices Database  \nSnapshoot: bayer\n");
+        if(SHIFT == 4)
+            //Selects an specific device
+            System.out.println("\nIcij International Medical Devices Database  \nSnapshoot: MEDRAD-BAYER Contrast Media Injector System\n");
 
         Elements newsHeadlines = null;
 
@@ -101,15 +109,57 @@ public class JsoupTest {
             }
             System.out.println("Intermediary");
 
+        }if(SHIFT == 3){
+            newsHeadlines = doc3.select("td");
+            int shoot = 0;
+            int remainder = 0;
+
+            for (Element line : newsHeadlines) {
+                id_shoot = Short.toString(ID_SHOOT);
+                String headline = line.text();
+                remainder = shoot%6;
+                if (remainder == 0) {
+                    if (id_shoot.length() == 1) {
+                        id_shoot = SPOT + ZERO + id_shoot + "";
+                    }
+                    if (id_shoot.length() == 2) {
+                        id_shoot = SPOT + id_shoot + "  ";
+                    } else {
+                        id_shoot = id_shoot + "  ";
+                    }
+                    System.out.println(id_shoot + headline);
+                    ID_SHOOT++;
+                }
+
+                shoot++;
+
+            }
+
+        }if(SHIFT == 4){
+            newsHeadlines = doc4.select("div.float-right");
+
+                System.out.println("Product Description:");
+                String line = newsHeadlines.text();
+                System.out.println(id_shoot + line);
+
+
         }
+
 
         System.out.println("\n\n----------------------------------------------------------------\n\n");
 
         //Print the outer html of the page
         if (SHIFT == 0 || SHIFT == 1) {
             System.out.println(doc.outerHtml());
-        }else{
+        }
+        if(SHIFT == 2){
             System.out.println(doc2.outerHtml());
+        }
+        if(SHIFT == 3){
+            System.out.println(doc3.outerHtml());
+        }
+        if(SHIFT == 4){
+            System.out.println(doc4.outerHtml());
 
         }
 
