@@ -5,8 +5,8 @@ package Rehearsing_with_jsoup;
  * @author jmartorell
  */
 public class JsoupThesis {
-    String[][] ranking;
     String[][] targets;
+    String[][] scope;
     int numberTargetsEntries;
     int numberRankingEntries;
 

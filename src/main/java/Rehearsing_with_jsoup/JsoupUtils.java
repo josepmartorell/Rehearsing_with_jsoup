@@ -34,17 +34,17 @@ public class JsoupUtils {
      * having previously displayed the message corresponding to the first parameter and, in case it is empty,
      * insists on displaying the error message corresponding to the second parameter, until the entry is correct.
      */
-    public static String askString(String missatge, String missatgeError){
+    public static String askString(String message, String errorMessage){
 
         Scanner scan = new Scanner(System.in);
         boolean givenCorrect = true;
         String targetName = "";
-        System.out.println(missatge);
+        System.out.println(message);
         givenCorrect= scan.hasNextLine();
         do{
             //givenCorrect = scan.hasNextLine();
             if(!givenCorrect){
-                System.out.println(missatgeError);
+                System.out.println(errorMessage);
             }else{
                 targetName = scan.nextLine();
             }

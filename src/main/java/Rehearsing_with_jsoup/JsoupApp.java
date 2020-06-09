@@ -25,7 +25,7 @@ class JsoupApp {
         JsoupThesis jsoupThesis = new JsoupThesis();
         JsoupManager jsoupManager = new JsoupManager();
         JsoupRecharger data = new JsoupRecharger ();
-        jsoupManager.initializeData(jsoupThesis, data.ranking.length, data.ranking[0].length,
+        jsoupManager.initializeData(jsoupThesis, data.targets.length, data.targets[0].length,
                 data.targets.length, data.targets[0].length);
         do{
 
@@ -37,7 +37,7 @@ class JsoupApp {
                     break;
                 case 2:
                     jsoupManager.loadTargets(jsoupThesis, data);
-                    JsoupInterface.showRanking(jsoupThesis.ranking);
+                    JsoupInterface.showRanking(jsoupThesis.targets);
                     break;
                 case 3:
                     // we will not implement anything

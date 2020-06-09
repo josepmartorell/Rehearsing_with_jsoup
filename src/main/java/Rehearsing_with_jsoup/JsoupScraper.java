@@ -40,10 +40,8 @@ public class JsoupScraper {
 
         out.close();
 
-        System.out.println("\n\n----------------------------------------------------------------\n\n");
+        System.out.println("\n----------------------------------------------------------------\n\n");
 
-        //Print the outer html of the page
-        System.out.println(page.outerHtml());
 
     }
 

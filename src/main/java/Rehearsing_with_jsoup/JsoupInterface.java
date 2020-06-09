@@ -25,14 +25,14 @@ public class JsoupInterface {
      * properly formatted, with the columns well aligned regardless of the length of the characters.
      */
 
-    public static void showRanking(String[][]ranking){
+    public static void showRanking(String[][]targets){
         System.out.print("--------------------------------------------------------------------------\n" +
-                         "CLUSTER 4.                                                 JACK CONNECTION\n" +
+                         "KEYWORDS                                                           RESULTS\n" +
                          "--------------------------------------------------------------------------\n");
         int i = 0;
-        while ( i < ranking.length){
-            System.out.print(String.format("%-18s", ranking[i][ID_NAME]) + "\t\t");
-            System.out.print(String.format("%50s",ranking[i][ID_PUNCTUATION ]) + "\n");
+        while ( i < targets.length){
+            System.out.print(String.format("%-18s", targets[i][ID_NAME]) + "\t\t");
+            System.out.print(String.format("%50s",targets[i][ID_PUNCTUATION ]) + "\n");
             i++;
         }
 
