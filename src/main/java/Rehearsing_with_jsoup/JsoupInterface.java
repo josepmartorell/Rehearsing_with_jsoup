@@ -26,13 +26,13 @@ public class JsoupInterface {
      */
 
     public static void showRanking(String[][]ranking){
-        System.out.print("------------------------------------------\n" +
-                         "TARGET                          COLLATIONS\n" +
-                         "------------------------------------------\n");
+        System.out.print("--------------------------------------------------------------------------\n" +
+                         "CLUSTER 4.                                                 JACK CONNECTION\n" +
+                         "--------------------------------------------------------------------------\n");
         int i = 0;
         while ( i < ranking.length){
             System.out.print(String.format("%-18s", ranking[i][ID_NAME]) + "\t\t");
-            System.out.print(String.format("%18s",ranking[i][ID_PUNCTUATION ]) + "\n");
+            System.out.print(String.format("%50s",ranking[i][ID_PUNCTUATION ]) + "\n");
             i++;
         }
 
