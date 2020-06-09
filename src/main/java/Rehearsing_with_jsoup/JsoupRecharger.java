@@ -6,10 +6,10 @@ package Rehearsing_with_jsoup;
  */
 public class JsoupRecharger {
     String[][] ranking = {
-            {"TARGET A.", "10"},
-            {"TARGET B.", "10"},
-            {"TARGET C.", "10"},
-            {"TARGET D.", "10"}
+            {"TARGET -1.", "JACK LEVEL - 10"},
+            {"TARGET -2.", "JACK LEVEL - 10"},
+            {"TARGET -3.", "JACK LEVEL - 40"},
+            {"TARGET -4.", "JACK LEVEL - 10"}
     };
     String[][] targets = {
             {"TARGET A.", "TARGET B.", "AAAAAAAAA"},
