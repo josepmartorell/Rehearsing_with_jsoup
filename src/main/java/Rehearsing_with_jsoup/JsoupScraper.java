@@ -1,3 +1,5 @@
+package Rehearsing_with_jsoup;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -7,6 +9,10 @@ import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 
+/**
+ *
+ * @author jmartorell
+ */
 public class JsoupScraper {
 
     //URL: https://offshoreleaks.icij.org/search?q=pharma
@@ -38,7 +44,9 @@ public class JsoupScraper {
 
         //Print the outer html of the page
         System.out.println(page.outerHtml());
+
     }
+
 
 }
 
