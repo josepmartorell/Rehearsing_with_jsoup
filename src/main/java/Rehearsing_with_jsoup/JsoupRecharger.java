@@ -5,17 +5,17 @@ package Rehearsing_with_jsoup;
  * @author jmartorell
  */
 public class JsoupRecharger {
-    String[][] ranking = {
-            {"TARGET -1.", "JACK LEVEL - 10"},
-            {"TARGET -2.", "JACK LEVEL - 10"},
-            {"TARGET -3.", "JACK LEVEL - 40"},
-            {"TARGET -4.", "JACK LEVEL - 10"}
-    };
     String[][] targets = {
-            {"TARGET A.", "TARGET B.", "AAAAAAAAA"},
-            {"TARGET C.", "TARGET D.", "BBBBBBBBBB"},
-            {"TARGET E", "TARGET A.", "AAAAAAAABBBBBBBBBBAABBBABB"},
-            {"TARGET F.", "TARGET X.", "B"}
+            {"pharma", "10"},
+            {"apple", "10"},
+            {"down", "10"},
+            {"freedom", "10"}
+    };
+    String[][] scope = {
+            {"1999-01-01", "1999-12-31"},
+            {"2000-01-01", "2000-12-31"},
+            {"2001-01-01", "2011-12-31"},
+            {"2012-01-01", "2020-12-31"}
     };
 
 

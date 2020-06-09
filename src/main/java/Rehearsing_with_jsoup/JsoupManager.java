@@ -7,16 +7,16 @@ package Rehearsing_with_jsoup;
 public class JsoupManager {
 
 
-    public void initializeData(JsoupThesis jsoupThesis, int rankingRows, int rankingColumns, int targetsRows, int targetsColumns){
-        jsoupThesis.ranking = new String[rankingRows][rankingColumns];
-        jsoupThesis.targets = new String[targetsRows][targetsColumns];
+    public void initializeData(JsoupThesis jsoupThesis, int targetRows, int targetColumns, int scopeRows, int scopeColumns){
+        jsoupThesis.targets = new String[targetRows][targetColumns];
+        jsoupThesis.scope = new String[scopeRows][scopeColumns];
 
 
     }
     public void loadTargets(JsoupThesis jsoupThesis, JsoupRecharger data){
-        for (int i = 0; i < data.ranking.length ; i++){
-            jsoupThesis.ranking[i][0] = data.ranking[i][0];
-            jsoupThesis.ranking[i][1] = data.ranking[i][1];
+        for (int i = 0; i < data.targets.length ; i++){
+            jsoupThesis.targets[i][0] = data.targets[i][0];
+            jsoupThesis.targets[i][1] = data.targets[i][1];
             jsoupThesis.numberRankingEntries++;
         }
 
