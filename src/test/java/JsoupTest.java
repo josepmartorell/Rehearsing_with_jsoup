@@ -4,6 +4,10 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.Scanner;
 
 
@@ -18,6 +22,7 @@ public class JsoupTest {
     static final String ZERO = "0";
     static final String SPOT = " ";
     static final String SKIP = "   ";
+    static String DATER = "";
 
     public static void main(String[] args) throws IOException {
         JsoupTest prg = new JsoupTest();
@@ -138,12 +143,108 @@ public class JsoupTest {
         }if(SHIFT == 4){
             newsHeadlines = doc4.select("div.float-right");
 
-                System.out.println("Product Description:");
-                String line = newsHeadlines.text();
-                System.out.println(id_shoot + line);
+            System.out.println("Product Description:");
+            String line = newsHeadlines.text();
+            System.out.println(id_shoot + line);
 
 
-        }
+        }if(SHIFT == 5){
+            // creating a Calendar object
+            Calendar c = Calendar.getInstance();
+
+            // set Date
+            c.set(Calendar.DATE, 14);
+
+            // set Month
+            // MONTH starts with 0 i.e. ( 0 - Jan)
+            c.set(Calendar.MONTH, 1);
+
+            // set Year
+            c.set(Calendar.YEAR, 2008);
+
+            // creating a date object with specified time.
+            Date dateOne = c.getTime();
+            System.out.println("Date 1: "
+                    + dateOne);
+
+            // creating a date of object
+            // storing the current date
+            Date currentDate = new Date();
+
+            System.out.println("Date 2: "
+                    + currentDate);
+
+            // compares
+            System.out.println("On Comparison: "
+                    + currentDate
+                    .compareTo(dateOne));
+            /*Return Value: The function gives three return values specified below:
+
+            It returns the value 0 if the argument Date is equal to this Date.
+            It returns a value less than 0 if this Date is before the Date argument.
+            It returns a value greater than 0 if this Date is after the Date argument.
+            */
+
+        }if(SHIFT == 6){
+
+            //enter date
+            System.out.println("Enter date: ");
+            Scanner scan2 = new Scanner(System.in);
+            DATER = scan2.nextLine();
+            Date dater = ParseDater(DATER);
+            System.out.println("ENTRY DATE: " + dater);
+
+            //current date
+            Date currentDate = new Date();
+            System.out.println("CURRENT DATE: "
+                    + currentDate);
+
+            //compares
+            System.out.println("On Comparison: "
+                    + currentDate
+                    .compareTo(dater));
+
+            scan2.close();
+
+        }if(SHIFT == 7){
+
+            //enter date
+            System.out.println("Enter date: ");
+            Scanner scan3 = new Scanner(System.in);
+            String string = scan3.nextLine();
+
+            //replace month format
+            string.replace("JAN", "1");
+            string.replace("FEB", "2");
+            string.replace("MAR", "3");
+            string.replace("APR", "4");
+            string.replace("MAY", "5");
+            string.replace("JUN", "6");
+            string.replace("JUL", "7");
+            string.replace("AUG", "8");
+            string.replace("SEP", "9");
+            string.replace("OCT", "10");
+            string.replace("NOV", "11");
+            string.replace("DEC", "12");
+
+
+            Date dater = ParseDater(DATER);
+            System.out.println("ENTRY DATE " + dater);
+
+            //current date
+            Date currentDate = new Date();
+            System.out.println("CURRENT DATE: "
+                    + currentDate);
+
+            //compares
+            System.out.println("On Comparison: "
+                    + currentDate
+                    .compareTo(dater));
+
+            scan3.close();
+
+    }
+
 
 
         System.out.println("\n\n----------------------------------------------------------------\n\n");
@@ -164,6 +265,19 @@ public class JsoupTest {
         }
 
 
+    }
+
+    public static Date ParseDater(String dater) {
+        SimpleDateFormat formato = new SimpleDateFormat("dd-MM-yyyy");
+        Date daterDate = null;
+        try {
+            daterDate = formato.parse(dater);
+        }
+        catch (ParseException ex)
+        {
+            System.out.println(ex);
+        }
+        return daterDate;
     }
 
 
