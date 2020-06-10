@@ -6,7 +6,6 @@ import java.io.IOException;
  *
  * @author jmartorell
  */
-
 public class JsoupManager {
 
 
@@ -19,18 +18,16 @@ public class JsoupManager {
     public void loadTargets(JsoupThesis jsoupThesis, JsoupRecharger data){
         for (int i = 0; i < data.targets.length ; i++){
             jsoupThesis.targets[i] = data.targets[i];
-            jsoupThesis.numberRankingEntries++;
+            jsoupThesis.numberTargetsEntries++;
         }
 
     }
     /* todo - add parameters: , String fromDate, String toDate */ //Activating spider ...
-    public void analyzeTargets(JsoupThesis jsoupThesis, String keyword) throws IOException {
+    public void analyzeTargets(String keyword) throws IOException {
         System.out.print("--------------------------------------------------------------------------\n" +
                          "Icij Search Engine Panama Papers - SNAPSHOOT: "+ keyword + "\n" +
                          "--------------------------------------------------------------------------\n" );
-        System.out.print("Activating spider ...\n");
         JsoupScraper.shootTargets(keyword);
-        System.out.print("Spider disabled.\n");
 
     }
 
