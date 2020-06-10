@@ -37,12 +37,11 @@ public class JsoupUtils {
     public static String askString(String message, String errorMessage){
 
         Scanner scan = new Scanner(System.in);
-        boolean givenCorrect = true;
+        boolean givenCorrect;
         String targetName = "";
         System.out.println(message);
-        givenCorrect= scan.hasNextLine();
         do{
-            //givenCorrect = scan.hasNextLine();
+            givenCorrect = scan.hasNextLine();
             if(!givenCorrect){
                 System.out.println(errorMessage);
             }else{
@@ -52,6 +51,7 @@ public class JsoupUtils {
         }while(!givenCorrect);
 
         return targetName;
+
     };
 
 

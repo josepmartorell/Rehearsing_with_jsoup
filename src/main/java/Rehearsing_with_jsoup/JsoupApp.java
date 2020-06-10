@@ -1,5 +1,7 @@
 package Rehearsing_with_jsoup;
 
+import java.io.IOException;
+
 /**
  *
  * @author jmartorell
@@ -8,12 +10,12 @@ class JsoupApp {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         JsoupApp prg = new JsoupApp ();
         prg.init();
     }
 
-    void init() {
+    void init() throws IOException {
         int option = 0;
         String[] menu = {
                 "SWITCH SPIDER RUN MODE:",
@@ -34,13 +36,15 @@ class JsoupApp {
             switch (option){
                 case 1:
                     // We will not implement anything
+                    String keyword = JsoupUtils.askString("Enter keyword:", "Error");
+                    jsoupManager.analyzeTargets(jsoupThesis, keyword);
                     break;
                 case 2:
-                    jsoupManager.loadTargets(jsoupThesis, data);
-                    JsoupInterface.showRanking(jsoupThesis.targets);
+                    // we will not implement anything
                     break;
                 case 3:
-                    // we will not implement anything
+                    jsoupManager.loadTargets(jsoupThesis, data);
+                    JsoupInterface.showRanking(jsoupThesis.targets);
                     break;
                 case 0:
                     break;
