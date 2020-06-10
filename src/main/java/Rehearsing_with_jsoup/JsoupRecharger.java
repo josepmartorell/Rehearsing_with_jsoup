@@ -4,12 +4,13 @@ package Rehearsing_with_jsoup;
  *
  * @author jmartorell
  */
+
 public class JsoupRecharger {
-    String[][] targets = {
-            {"pharma", "10"},
-            {"apple", "10"},
-            {"down", "10"},
-            {"freedom", "10"}
+    String[] targets = {
+            "vertex",
+            "falcon",
+            "golden",
+            "freaks"
     };
     String[][] scope = {
             {"1999-01-01", "1999-12-31"},

@@ -4,10 +4,9 @@ package Rehearsing_with_jsoup;
  *
  * @author jmartorell
  */
+
 public class JsoupInterface {
 
-    static final short ID_NAME = 0;
-    static final short ID_PUNCTUATION = 1;
     /* From a String array that contains the different menu options, display this properly formatted.
      * The first position in that array is the title of the menu, not an option.
      */
@@ -25,14 +24,15 @@ public class JsoupInterface {
      * properly formatted, with the columns well aligned regardless of the length of the characters.
      */
 
-    public static void showRanking(String[][]targets){
+    public static void showRanking(String[] targets){
         System.out.print("--------------------------------------------------------------------------\n" +
-                         "KEYWORDS                                                           RESULTS\n" +
+                         "KEYWORDS                                                                  \n" +
                          "--------------------------------------------------------------------------\n");
         int i = 0;
         while ( i < targets.length){
-            System.out.print(String.format("%-18s", targets[i][ID_NAME]) + "\t\t");
-            System.out.print(String.format("%50s",targets[i][ID_PUNCTUATION ]) + "\n");
+            //System.out.print(String.format("%-18s", targets[i]) + "\t\t");
+            //System.out.print(String.format("%50s",targets[i]) + "\n");
+            System.out.print(String.format("%-18s", targets[i]) + "\n");
             i++;
         }
 

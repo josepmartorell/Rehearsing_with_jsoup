@@ -5,7 +5,6 @@ import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
-import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
@@ -16,10 +15,8 @@ import java.io.IOException;
  *
  * @author jmartorell
  */
-public class JsoupScraper {
 
-    //URL: https://offshoreleaks.icij.org/search?q=pharma
-    //Selector: td
+public class JsoupScraper {
 
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36";
 
@@ -31,7 +28,6 @@ public class JsoupScraper {
 
         for (Element searchResult : newsHeadlines) {
 
-            //final String target = searchResult.text();
             String target = searchResult.text();
             System.out.println(target.strip());
 
