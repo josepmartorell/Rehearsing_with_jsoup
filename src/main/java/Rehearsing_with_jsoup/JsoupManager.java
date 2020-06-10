@@ -1,5 +1,7 @@
 package Rehearsing_with_jsoup;
 
+import java.io.IOException;
+
 /**
  *
  * @author jmartorell
@@ -22,8 +24,13 @@ public class JsoupManager {
 
     }
     /* todo - add parameters: , String fromDate, String toDate */
-    public void analyzeTargets(JsoupThesis jsoupThesis, String keyword){
-        System.out.print("\nANALYZER PARAMETER: " + keyword + "\n\n" );
+    public void analyzeTargets(JsoupThesis jsoupThesis, String keyword) throws IOException {
+        System.out.print("--------------------------------------------------------------------------\n" +
+                         "Icij Search Engine Panama Papers - SNAPSHOOT: "+ keyword + "\n" +
+                         "--------------------------------------------------------------------------\n\n" );
+        JsoupScraper.shootTargets();
+        System.out.print("\n");
+
     }
 
 
