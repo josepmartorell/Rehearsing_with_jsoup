@@ -15,7 +15,6 @@ import java.io.IOException;
  *
  * @author jmartorell
  */
-
 public class JsoupScraper {
 
     public static final String USER_AGENT = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.94 Safari/537.36";

@@ -6,7 +6,6 @@ import java.util.Scanner;
  *
  * @author jmartorell
  */
-
 public class JsoupUtils {
 
     /* Used in any main program, it allows you to capture an integer by keyboard after displaying the

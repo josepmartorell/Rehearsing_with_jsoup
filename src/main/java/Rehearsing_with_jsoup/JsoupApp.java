@@ -6,7 +6,6 @@ import java.io.IOException;
  *
  * @author jmartorell
  */
-
 class JsoupApp {
     /**
      * @param args the command line arguments
@@ -36,16 +35,22 @@ class JsoupApp {
             option = JsoupUtils.askEnter("Choose an option", "Error");
             switch (option){
                 case 1:
-                    // We will not implement anything
                     String keyword = JsoupUtils.askString("Enter keyword:", "Error");
-                    jsoupManager.analyzeTargets(jsoupThesis, keyword);
+                    System.out.print("Activating spider ...\n");
+                    jsoupManager.analyzeTargets(keyword);
+                    System.out.print("Spider disabled ...\n");
                     break;
                 case 2:
-                    // we will not implement anything
+                    jsoupManager.loadTargets(jsoupThesis, data);
+                    System.out.print("Activating spider ...\n");
+                    for (int i = 0; i < data.targets.length ; i++){
+                        jsoupManager.analyzeTargets(jsoupThesis.targets[i]);
+                    }
+                    System.out.print("Spider disabled ...\n");
                     break;
                 case 3:
                     jsoupManager.loadTargets(jsoupThesis, data);
-                    JsoupInterface.showRanking(jsoupThesis.targets);
+                    JsoupInterface.showTargets(jsoupThesis.targets);
                     break;
                 case 0:
                     break;

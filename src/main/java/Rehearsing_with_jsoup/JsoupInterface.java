@@ -4,7 +4,6 @@ package Rehearsing_with_jsoup;
  *
  * @author jmartorell
  */
-
 public class JsoupInterface {
 
     /* From a String array that contains the different menu options, display this properly formatted.
@@ -15,8 +14,8 @@ public class JsoupInterface {
                          "* * * * * *    JTECH web scraping panel (www.jtech.network)    * * * * * *\n" +
                          "--------------------------------------------------------------------------\n");
 
-        for (int i = 0; i < menu.length; i++){
-            System.out.print(menu[i] + "\n");
+        for (String s : menu) {
+            System.out.print(s + "\n");
         }
 
     }
@@ -24,9 +23,9 @@ public class JsoupInterface {
      * properly formatted, with the columns well aligned regardless of the length of the characters.
      */
 
-    public static void showRanking(String[] targets){
+    public static void showTargets(String[] targets){
         System.out.print("--------------------------------------------------------------------------\n" +
-                         "KEYWORDS                                                                  \n" +
+                         "RECHARGER                                                                 \n" +
                          "--------------------------------------------------------------------------\n");
         int i = 0;
         while ( i < targets.length){
