@@ -21,6 +21,10 @@ public class JsoupManager {
         }
 
     }
+    /* todo - add parameters: , String fromDate, String toDate */
+    public void analyzeTargets(JsoupThesis jsoupThesis, String keyword){
+        System.out.print("\nANALYZER PARAMETER: " + keyword + "\n\n" );
+    }
 
 
 }

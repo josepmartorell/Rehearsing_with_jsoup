@@ -34,6 +34,8 @@ class JsoupApp {
             switch (option){
                 case 1:
                     // We will not implement anything
+                    String keyword = JsoupUtils.askString("Enter keyword:", "Error");
+                    jsoupManager.analyzeTargets(jsoupThesis, keyword);
                     break;
                 case 2:
                     jsoupManager.loadTargets(jsoupThesis, data);
