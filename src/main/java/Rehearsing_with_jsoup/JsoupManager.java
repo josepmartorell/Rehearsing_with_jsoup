@@ -23,13 +23,14 @@ public class JsoupManager {
         }
 
     }
-    /* todo - add parameters: , String fromDate, String toDate */
+    /* todo - add parameters: , String fromDate, String toDate */ //Activating spider ...
     public void analyzeTargets(JsoupThesis jsoupThesis, String keyword) throws IOException {
         System.out.print("--------------------------------------------------------------------------\n" +
                          "Icij Search Engine Panama Papers - SNAPSHOOT: "+ keyword + "\n" +
-                         "--------------------------------------------------------------------------\n\n" );
-        JsoupScraper.shootTargets();
-        System.out.print("\n");
+                         "--------------------------------------------------------------------------\n" );
+        System.out.print("Activating spider ...\n");
+        JsoupScraper.shootTargets(keyword);
+        System.out.print("Spider disabled.\n");
 
     }
 
