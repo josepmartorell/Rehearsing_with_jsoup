@@ -6,19 +6,19 @@ import java.io.IOException;
  *
  * @author jmartorell
  */
+
 public class JsoupManager {
 
 
-    public void initializeData(JsoupThesis jsoupThesis, int targetRows, int targetColumns, int scopeRows, int scopeColumns){
-        jsoupThesis.targets = new String[targetRows][targetColumns];
+    public void initializeData(JsoupThesis jsoupThesis, int targetRows, int scopeRows, int scopeColumns){
+        jsoupThesis.targets = new String[targetRows];
         jsoupThesis.scope = new String[scopeRows][scopeColumns];
 
 
     }
     public void loadTargets(JsoupThesis jsoupThesis, JsoupRecharger data){
         for (int i = 0; i < data.targets.length ; i++){
-            jsoupThesis.targets[i][0] = data.targets[i][0];
-            jsoupThesis.targets[i][1] = data.targets[i][1];
+            jsoupThesis.targets[i] = data.targets[i];
             jsoupThesis.numberRankingEntries++;
         }
 

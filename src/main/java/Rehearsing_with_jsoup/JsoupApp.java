@@ -6,6 +6,7 @@ import java.io.IOException;
  *
  * @author jmartorell
  */
+
 class JsoupApp {
     /**
      * @param args the command line arguments
@@ -27,8 +28,8 @@ class JsoupApp {
         JsoupThesis jsoupThesis = new JsoupThesis();
         JsoupManager jsoupManager = new JsoupManager();
         JsoupRecharger data = new JsoupRecharger ();
-        jsoupManager.initializeData(jsoupThesis, data.targets.length, data.targets[0].length,
-                data.targets.length, data.targets[0].length);
+        jsoupManager.initializeData(jsoupThesis, data.targets.length,
+                data.scope.length, data.scope[0].length);
         do{
 
             JsoupInterface.showMenu(menu);
