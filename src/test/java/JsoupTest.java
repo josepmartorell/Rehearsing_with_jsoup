@@ -257,6 +257,18 @@ public class JsoupTest {
             scan2.close();
 
 
+        }else if (SHIFT == 9){
+            String [][] dater;
+            newsHeadlines = doc1.select("td");
+
+            for (Element line : newsHeadlines) {
+
+                String headline = line.getElementsByClass("description").text();
+                String dateline = line.getElementsByClass("incorporation").text();
+                System.out.println(headline + dateline);
+                ID_SHOOT++;
+            }
+
         }
 
 
@@ -293,6 +305,22 @@ public class JsoupTest {
             System.out.println(ex);
         }
         return daterDate;
+    }
+
+    public class Dater {
+        String[][] dater;
+
+    }
+
+    public class DaterRecharger {
+        String[][] dater = {
+                {"VERTEX", "14-FEB-2001"},
+                {"FALCON", "15-AUG-1987"},
+                {"GOLDEN", "01-JUN-2013"},
+                {"FREAKS", "23-JUL-2020"}
+
+        };
+
     }
 
 
