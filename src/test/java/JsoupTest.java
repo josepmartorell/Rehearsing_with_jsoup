@@ -289,7 +289,28 @@ public class JsoupTest {
             }
 
 
+        }if (SHIFT == 11){
+            newsHeadlines = doc1.select("td");
+            int no = 0;
+            for (Element line : newsHeadlines) {
+
+                String headline = line.getElementsByClass("description").text();
+                String dateline = line.getElementsByClass("incorporation").text();
+                String target_string = "JAN";
+                String[] words = dateline.split("\\W+");
+                for (String word : words) {
+                    if (target_string.contentEquals(word)) {
+                        no += 1;
+                        System.out.println("Match " + no + ": " + word + " in " + dateline);
+                    }
+
+                }
+
+            }
+
+
         }
+
 
 
 
