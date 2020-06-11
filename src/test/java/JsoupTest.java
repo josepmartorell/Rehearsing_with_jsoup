@@ -23,6 +23,7 @@ public class JsoupTest {
     static final String SPOT = " ";
     static final String SKIP = "   ";
     static String DATER = "";
+    static String TARGET = "";
 
     public static void main(String[] args) throws IOException {
         JsoupTest prg = new JsoupTest();
@@ -231,7 +232,7 @@ public class JsoupTest {
             scan2.close();
 
 
-    }if(SHIFT == 8){
+        }if(SHIFT == 8){
 
             //enter date
             System.out.println("Enter date: ");
@@ -257,19 +258,39 @@ public class JsoupTest {
             scan2.close();
 
 
-        }else if (SHIFT == 9){
-            String [][] dater;
+        }if (SHIFT == 9){
+            String target_string = "JAN";
+            String target_search = "09-JAN-1998";
+            String[] words = target_search.split("\\W+");
+            for (String word : words) {
+                if (target_string.contains(word)) {
+                    System.out.println("Found: " + word);
+                }
+
+            }
+
+
+        }if (SHIFT == 10){
             newsHeadlines = doc1.select("td");
 
             for (Element line : newsHeadlines) {
 
-                String headline = line.getElementsByClass("description").text();
+                //String headline = line.getElementsByClass("description").text();
                 String dateline = line.getElementsByClass("incorporation").text();
-                System.out.println(headline + dateline);
-                ID_SHOOT++;
+                String target_string = "JAN";
+                String[] words = dateline.split("\\W+");
+                for (String word : words) {
+                    if (target_string.contentEquals(word)) {
+                        System.out.println("Found word: " + word + " in " + dateline);
+                    }
+                    
+                }
+
             }
 
+
         }
+
 
 
 
