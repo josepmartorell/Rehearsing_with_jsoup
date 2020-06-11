@@ -309,6 +309,30 @@ public class JsoupTest {
             }
 
 
+        }if (SHIFT == 12){
+
+            //create object
+            DataRecharger dataRecharger = new DataRecharger();
+            //create object
+            Recharger recharger = new Recharger();
+            //assign the recharger the charge
+            recharger.recharger = new String[dataRecharger.data.length][2];
+            //initialize
+            recharger.entity = 0;
+            recharger.date = 1;
+            for ( int i = 0; i < recharger.recharger.length; i++ ){
+                recharger.recharger[i][0] = dataRecharger.data[i][recharger.entity];
+                recharger.recharger[i][1] = dataRecharger.data[i][recharger.date];
+            //show recharge
+            }
+            for ( int i = 0; i < recharger.recharger.length; i++ ){
+                System.out.println(String.format("%-25s %-10s", recharger.recharger[i][0],
+                        recharger.recharger[i][1]));
+            }
+
+
+
+
         }
 
 
@@ -351,11 +375,13 @@ public class JsoupTest {
 
     public class Recharger {
         String[][] recharger;
+        int entity;
+        int date;
 
     }
 
     public class DataRecharger {
-        String[][] dataRecharger = {
+        String[][] data = {
                 {"VERTEX", "14-FEB-2001"},
                 {"FALCON", "15-AUG-1987"},
                 {"GOLDEN", "01-JUN-2013"},
