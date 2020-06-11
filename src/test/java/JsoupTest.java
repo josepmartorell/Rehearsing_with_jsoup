@@ -210,26 +210,13 @@ public class JsoupTest {
 
             //enter date
             System.out.println("Enter date: ");
-            Scanner scan3 = new Scanner(System.in);
-            String string = scan3.nextLine();
+            Scanner scan2 = new Scanner(System.in);
+            DATER = scan2.nextLine();
 
-            //replace month format
-            string.replace("JAN", "1");
-            string.replace("FEB", "2");
-            string.replace("MAR", "3");
-            string.replace("APR", "4");
-            string.replace("MAY", "5");
-            string.replace("JUN", "6");
-            string.replace("JUL", "7");
-            string.replace("AUG", "8");
-            string.replace("SEP", "9");
-            string.replace("OCT", "10");
-            string.replace("NOV", "11");
-            string.replace("DEC", "12");
+            String dater = DATER.replace('J', '1');
 
-
-            Date dater = ParseDater(DATER);
-            System.out.println("ENTRY DATE " + dater);
+            Date newDater = ParseDater(dater);
+            System.out.println("ENTRY DATE: " + newDater);
 
             //current date
             Date currentDate = new Date();
@@ -239,11 +226,39 @@ public class JsoupTest {
             //compares
             System.out.println("On Comparison: "
                     + currentDate
-                    .compareTo(dater));
+                    .compareTo(newDater));
 
-            scan3.close();
+            scan2.close();
 
-    }
+
+    }if(SHIFT == 8){
+
+            //enter date
+            System.out.println("Enter date: ");
+            Scanner scan2 = new Scanner(System.in);
+            DATER = scan2.nextLine();
+
+            //check double quotes when no char are handled 'char', "string".
+            String dater = DATER.replaceFirst("JAN", "1");
+
+            Date newDater = ParseDater(dater);
+            System.out.println("ENTRY DATE: " + newDater);
+
+            //current date
+            Date currentDate = new Date();
+            System.out.println("CURRENT DATE: "
+                    + currentDate);
+
+            //compares
+            System.out.println("On Comparison: "
+                    + currentDate
+                    .compareTo(newDater));
+
+            scan2.close();
+
+
+        }
+
 
 
 
