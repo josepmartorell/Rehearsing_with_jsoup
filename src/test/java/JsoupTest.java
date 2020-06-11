@@ -349,13 +349,13 @@ public class JsoupTest {
         return daterDate;
     }
 
-    public class Dater {
-        String[][] dater;
+    public class Recharger {
+        String[][] recharger;
 
     }
 
-    public class DaterRecharger {
-        String[][] dater = {
+    public class DataRecharger {
+        String[][] dataRecharger = {
                 {"VERTEX", "14-FEB-2001"},
                 {"FALCON", "15-AUG-1987"},
                 {"GOLDEN", "01-JUN-2013"},
