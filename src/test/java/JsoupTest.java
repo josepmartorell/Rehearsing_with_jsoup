@@ -333,6 +333,45 @@ public class JsoupTest {
 
 
 
+        }if (SHIFT == 13){
+            int keys = 0;
+            //create object
+            DataRecharger dataRecharger = new DataRecharger();
+            //create object
+            Recharger recharger = new Recharger();
+            //assign the recharger the charge
+            recharger.recharger = new String[dataRecharger.data.length][2];
+            //initialize
+            recharger.entity = 0;
+            recharger.date = 1;
+            /*
+            for ( int i = 0; i < recharger.recharger.length; i++ ){
+                recharger.recharger[i][0] = dataRecharger.data[i][recharger.entity];
+                recharger.recharger[i][1] = dataRecharger.data[i][recharger.date];
+                //show recharge
+            }
+             */
+
+            Scanner scan2 = new Scanner(System.in);
+            String insert;
+            String indate;
+            System.out.print("Enter key: ");
+            insert = scan2.nextLine();
+            System.out.print("Enter date: ");
+            indate = scan2.nextLine();
+            insertKey(keys, insert, indate);
+            System.out.println("\n");
+
+
+
+            for ( int i = 0; i < recharger.recharger.length; i++ ){
+                System.out.println(String.format("%-25s %-10s", recharger.recharger[i][0],
+                        recharger.recharger[i][1]));
+            }
+
+
+
+
         }
 
 
@@ -373,15 +412,44 @@ public class JsoupTest {
         return daterDate;
     }
 
-    public class Recharger {
+    private void insertKey(int keys, String entity, String date){
+        if ( keys == DataRecharger.data.length ){
+            System.out.println("\n-------------------------------------------------------");
+            System.out.println("  the recharger is full - " + entity + " key not entered ");
+            System.out.println("---------------------------------------------------------");
+        }else{
+            entity = entity.toUpperCase();
+            int i = 0;
+            // We cycle the variable "i" until we reach the value of keys or the position of a matching entity.
+            while ( !entity.equals(DataRecharger.data[i][0]) && i < keys ){
+                i++;
+            }
+            // All keys have been traversed and no match found, we insert the keyword in the last position
+            if ( i == keys ){
+                // we enter the keyword and date in the last row.
+                DataRecharger.data[keys][0] = entity;
+                DataRecharger.data[keys][1] = date;
+                // we increase a position in the array
+                keys++;
+                // If it was a matching keyword we show message
+            }else{
+                System.out.println("ERROR! The keyword" + entity + " it is already in the recharger");
+            }
+
+        }
+
+    }
+
+
+    public static class Recharger {
         String[][] recharger;
         int entity;
         int date;
 
     }
 
-    public class DataRecharger {
-        String[][] data = {
+    public static class DataRecharger {
+        static String[][] data = {
                 {"VERTEX", "14-FEB-2001"},
                 {"FALCON", "15-AUG-1987"},
                 {"GOLDEN", "01-JUN-2013"},
